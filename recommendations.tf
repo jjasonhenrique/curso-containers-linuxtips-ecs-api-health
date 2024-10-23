@@ -1,5 +1,5 @@
 module "recommendations" {
-  source = "github.com/jjasonhenrique/curso-containers-linuxtips-module-service?ref=v1.3.2"
+  source = "github.com/jjasonhenrique/curso-containers-linuxtips-module-service?ref=v1.3.3"
   #source       = "/Users/matheus/Workspace/linuxtips/linuxtips-curso-containers-ecs-service-module"
   region       = var.region
   cluster_name = var.cluster_name
@@ -20,8 +20,6 @@ module "recommendations" {
 
   service_task_execution_role = aws_iam_role.main.arn
 
-
-
   service_healthcheck = {
     healthy_threshold   = 3
     unhealthy_threshold = 10
@@ -31,8 +29,6 @@ module "recommendations" {
     path                = "/healthz"
     port                = 8080
   }
-
-  capabilities = ["EC2"]
 
   service_launch_type = [
     {

@@ -1,5 +1,5 @@
 module "jaeger-collector" {
-  source = "github.com/jjasonhenrique/curso-containers-linuxtips-module-service?ref=v1.3.2"
+  source = "github.com/jjasonhenrique/curso-containers-linuxtips-module-service?ref=v1.3.3"
   #source       = "/Users/matheus/Workspace/linuxtips/linuxtips-curso-containers-ecs-service-module"
   region       = var.region
   cluster_name = var.cluster_name
@@ -14,8 +14,6 @@ module "jaeger-collector" {
   service_task_count = 1
 
   container_image = "jaegertracing/all-in-one:1.57"
-
-  capabilities = ["EC2"]
 
   service_listener = data.aws_ssm_parameter.listener_internal.value
   alb_arn          = data.aws_ssm_parameter.alb_internal.value

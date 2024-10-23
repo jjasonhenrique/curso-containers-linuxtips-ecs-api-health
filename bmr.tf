@@ -1,5 +1,5 @@
 module "bmr" {
-  source = "github.com/jjasonhenrique/curso-containers-linuxtips-module-service?ref=v1.3.2"
+  source = "github.com/jjasonhenrique/curso-containers-linuxtips-module-service?ref=v1.3.3"
   # source       = "/Users/matheus/Workspace/linuxtips/linuxtips-curso-containers-ecs-service-module"
   region       = var.region
   cluster_name = var.cluster_name
@@ -12,8 +12,6 @@ module "bmr" {
   task_minimum       = 1
   task_maximum       = 3
   service_task_count = 1
-
-  capabilities = ["EC2"]
 
   container_image = "fidelissauro/bmr-grpc-service:latest"
 

@@ -1,5 +1,5 @@
 module "imc" {
-  source = "github.com/jjasonhenrique/curso-containers-linuxtips-module-service?ref=v1.3.2"
+  source = "github.com/jjasonhenrique/curso-containers-linuxtips-module-service?ref=v1.3.3"
   # source       = "/Users/matheus/Workspace/linuxtips/linuxtips-curso-containers-ecs-service-module"
   region       = var.region
   cluster_name = var.cluster_name
@@ -19,8 +19,6 @@ module "imc" {
   alb_arn          = data.aws_ssm_parameter.alb_internal.value
 
   service_task_execution_role = aws_iam_role.main.arn
-
-  capabilities = ["EC2"]
 
   service_healthcheck = {
     healthy_threshold   = 3
