@@ -1,6 +1,6 @@
 module "water" {
-  source = "github.com/jjasonhenrique/curso-containers-linuxtips-module-service?ref=v1.3.3"
-  # source       = "/Users/matheus/Workspace/linuxtips/linuxtips-curso-containers-ecs-service-module"
+  source = "github.com/jjasonhenrique/curso-containers-linuxtips-module-service?ref=v1.4.0"
+  #source       = "/home/jason/Utils/Github/curso-containers-linuxtips-module-service"
   region       = var.region
   cluster_name = var.cluster_name
 
@@ -15,8 +15,12 @@ module "water" {
 
   container_image = "fidelissauro/water-grpc-service:latest"
 
-  service_listener = data.aws_ssm_parameter.listener_internal.value
-  alb_arn          = data.aws_ssm_parameter.alb_internal.value
+  use_service_connect = true
+  service_protocol = "grpc"
+  service_connect_name = data.aws_ssm_parameter.service_connect_name.value
+  service_connect_arn = data.aws_ssm_parameter.service_connect_arn.value
+
+  use_lb = false
 
   service_task_execution_role = aws_iam_role.main.arn
 

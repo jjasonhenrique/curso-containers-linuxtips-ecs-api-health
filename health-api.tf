@@ -1,6 +1,6 @@
 module "health_api" {
-  source = "github.com/jjasonhenrique/curso-containers-linuxtips-module-service?ref=v1.3.3"
-  # source       = "/Users/matheus/Workspace/linuxtips/linuxtips-curso-containers-ecs-service-module"
+  source = "github.com/jjasonhenrique/curso-containers-linuxtips-module-service?ref=v1.4.0"
+  #source       = "/home/jason/Utils/Github/curso-containers-linuxtips-module-service"
   region       = var.region
   cluster_name = var.cluster_name
 
@@ -14,6 +14,12 @@ module "health_api" {
   service_task_count = 1
 
   container_image = "fidelissauro/health-api:latest"
+
+  // Service Connect
+  use_service_connect = true
+  service_protocol = "http"
+  service_connect_name = data.aws_ssm_parameter.service_connect_name.value
+  service_connect_arn = data.aws_ssm_parameter.service_connect_arn.value
 
   service_listener = data.aws_ssm_parameter.listener.value
   alb_arn          = data.aws_ssm_parameter.alb.value

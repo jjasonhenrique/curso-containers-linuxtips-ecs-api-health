@@ -41,3 +41,11 @@ variable "ssm_private_subnet_3" {
 variable "ssm_service_discovery_namespace" {
   default = "/containers-linuxtips/ecs/cloudmap/namespace"
 }
+
+variable "ssm_service_connect_arn" {
+  default = "/containers-linuxtips/ecs/service_connect/namespace"
+}
+
+variable "ssm_service_connect_name" {
+  default = "/containers-linuxtips/ecs/service_connect/name"
+}
