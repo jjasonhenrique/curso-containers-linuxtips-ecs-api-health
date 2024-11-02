@@ -8,12 +8,13 @@ O Objetivo é subir um ambiente com comunicação distribuída entre vários mic
 ![v1](.github/assets/health-api.png)
 
 ```bash
-curl --location --request POST 'http://health.linuxtips.demo/calculator' \
+curl --location --request POST 'https://zcrgdtw54g.execute-api.us-east-1.amazonaws.com/dev/calculator' \
 --header 'Content-Type: application/json' \
+--header 'x-api-key: E5zKhUmZhT6UXIU4wE2Hc9IAwyMHex5C8LWLJVe0' \
 --data-raw '{ 
-   "age": 26,
-   "weight": 90.0,
-   "height": 1.77,
+   "age": 38,
+   "weight": 81.0,
+   "height": 1.75,
    "gender": "M", 
    "activity_intensity": "very_active"
 } ' --silent | jq .
