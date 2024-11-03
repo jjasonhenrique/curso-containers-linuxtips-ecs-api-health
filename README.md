@@ -8,9 +8,9 @@ O Objetivo é subir um ambiente com comunicação distribuída entre vários mic
 ![v1](.github/assets/health-api.png)
 
 ```bash
-curl --location --request POST 'https://zcrgdtw54g.execute-api.us-east-1.amazonaws.com/dev/calculator' \
+curl --location --request POST 'https://health.jjasonhenrique.com/v1/calculator' \
 --header 'Content-Type: application/json' \
---header 'x-api-key: E5zKhUmZhT6UXIU4wE2Hc9IAwyMHex5C8LWLJVe0' \
+--header 'x-api-key: K9x6PDgaQM3DF52sWiV8Q6Er8g8iSyAtaXRxpSGH' \
 --data-raw '{ 
    "age": 38,
    "weight": 81.0,
@@ -18,6 +18,7 @@ curl --location --request POST 'https://zcrgdtw54g.execute-api.us-east-1.amazona
    "gender": "M", 
    "activity_intensity": "very_active"
 } ' --silent | jq .
+
 ```
 
 ## [V2] - API Gateway e VPC Link para Exposição Externa
